@@ -28,9 +28,9 @@ $InCompliance = $true;
 foreach($Target in $TargetDevices){
     #Write-Host $Target;
     #Write-Host "Enable Status:"$Target.Enable;
-    if($Target.Enable -eq "True"){
+    if($Target.Enable -eq $true){
         #Write-Host "Enable Status:"$Target.Enable "for" $Target;
         $InCompliance = $false;
-        Set-CimInstance -InputObject $Target -Property @{Enable="False"} -PassThru;
+        Set-CimInstance -InputObject $Target -Property @{Enable=$false} -PassThru;
     }
 }
